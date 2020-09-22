@@ -1,5 +1,9 @@
 <html>
 <head>
+
+
+
+
 <style>
 
 
@@ -70,7 +74,7 @@ input
 <br>
 <h2>Your Details Is</h2>
 <br>
-<form action="insert.php" method="post"> 
+<form name="my_form" action="insert.php"  onsubmit="return validateForm()" method="post"> 
 <b>
 Id:     <input type="number"   id="ui" name="seid" readonly>
 <br><br>
@@ -79,34 +83,14 @@ Credit: <input type="number"   id="cr" name="secr" readonly>
 <br><br>
 <h2>Transfer Credit To</h2>
 
-<h4><b>User Id:</b><input type="number" id="id1" name="uid"></h4>
+<h4><b>User Id:</b><input type="number" id="id1" name="uid" required></h4>
 
 
-<h4><b>Amount:</b><input type="number" id="am" name="amount"></h4>
+<h4><b>Amount:</b><input type="number" id="am" name="amount" required></h4>
 <br>
 
 
-<script>
 
-var userid = sessionStorage.getItem("Userid");
-var credit = sessionStorage.getItem("Credit");
-
-console.log(userid);
-//document.write(userid+" "+credit);
-   var usi=document.getElementById('ui').value=userid;
-    var ucr=document.getElementById('cr').value=credit;
-       
-       
-      function fun()
-      {
-      
-      
-         var reid=document.getElementById('id1').value;
-         var am=document.getElementById("am").value;
-       }
-
-
-</script>
 
 
 
@@ -119,6 +103,40 @@ console.log(userid);
 
 
 </form>
+
+<script>
+
+var userid = sessionStorage.getItem("Userid");
+var credit = sessionStorage.getItem("Credit");
+
+console.log(userid);
+//document.write(userid+" "+credit);
+   var usi=document.getElementById('ui').value=userid;
+    var ucr=document.getElementById('cr').value=credit;
+    var reg=/^[0-9]+$/;   
+    function validateForm() {
+  
+  var x = document.forms["my_form"]["uid"].value;
+  var y = document.forms["my_form"]["amount"].value;
+  
+         if(x==usi)
+         {
+         alert("Please Enter Other user Id");
+         return false;
+         }
+  
+          if (y>ucr) {
+            alert("Please Check Your Credit");
+            return false;
+          } 
+ 
+    if (!x.match(reg) || !y.match(reg)) {
+            alert("Please Enter Number Only");
+            return false;
+          } 
+     
+   }
+</script>
 <center>
 
 </body>
