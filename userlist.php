@@ -15,24 +15,27 @@ Credit transfer system
 
 body{
 
-     // background-color:#FF007F;
+      background-color:rgb(255,0,140);
 }
 th {
   background-color: #4CAF50;
   color: white;
   border-bottom: 1px solid black;
+  height:40px;
 }
 tr,td
 {
 border-right: 1px solid black;
 cursor:pointer;
+
 }
 
 table
 {
       align:center;
        border: 1px solid black;
-          
+        height:50%;
+        width:30%;  
 
 
  
@@ -48,7 +51,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
           ?>
           <body>
           
-          <center><h3></>Select User By Id</h3></center>
+          <center><h2></>Select User By Id</h2></center>
           
         <table border="0" align="center" class="tablec" id="myTable">
         <thead>
@@ -123,7 +126,7 @@ function highlight_row() {
             var credit = rowSelected.cells[3].innerHTML;
             sessionStorage.setItem("Credit", credit);
             
-            window.location.href("tranfer.php");
+            window.location.replace("tranfer.php");
             }
             
         }

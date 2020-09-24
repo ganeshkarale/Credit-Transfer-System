@@ -11,7 +11,7 @@ body
 {
 
 
-  // background-color:#FF007F;
+   background-color:rgb(255,0,140);
 }
 
  button {
@@ -72,7 +72,7 @@ input
 <center>
 <br>
 <br>
-<h2>Your Details Is</h2>
+<h2>Your Details Are</h2>
 <br>
 <form name="my_form" action="insert.php"  onsubmit="return validateForm()" method="post"> 
 <b>
@@ -119,13 +119,18 @@ console.log(userid);
   var x = document.forms["my_form"]["uid"].value;
   var y = document.forms["my_form"]["amount"].value;
   
-         if(x==usi)
+         if(x==userid)
          {
          alert("Please Enter Other user Id");
          return false;
          }
+         if(x<=0 || y<=0)
+         {
+         alert("Enter Valied value");
+         return false;
+         }
   
-          if (y>ucr) {
+          if (y>credit) {
             alert("Please Check Your Credit");
             return false;
           } 
