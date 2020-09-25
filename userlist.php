@@ -15,7 +15,7 @@ Credit transfer system
 
 body{
 
-      background-color:rgb(255,0,140);
+      background-color:rgb(137,245,240);
 }
 th {
   background-color: #4CAF50;
@@ -36,7 +36,7 @@ table
        border: 1px solid black;
         height:50%;
         width:30%;  
-
+       table-layout: auto;
 
  
 }
@@ -51,7 +51,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
           ?>
           <body>
           
-          <center><h2></>Select User By Id</h2></center>
+          <center><h2></>Select User To Trasfer</h2></center>
           
         <table border="0" align="center" class="tablec" id="myTable">
         <thead>
@@ -89,6 +89,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 
 ?>
+<center>
+<button onclick='location.href="histry.php"' style="background-color: green;border: 0.5px solid black;color: white;padding: 15px 30px;font-size: 13px;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">View Histry</button>
+<br><br><button onclick='location.href="index.php"' style="background-color: green;border: 0.5px solid black;color: white;padding: 15px 30px;font-size: 13px;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">Back</button>
+</center>
 <script>
 
 highlight_row();

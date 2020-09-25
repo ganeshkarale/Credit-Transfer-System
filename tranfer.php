@@ -11,7 +11,7 @@ body
 {
 
 
-   background-color:rgb(255,0,140);
+   background-color:rgb(137,245,240);
 }
 
  button {
@@ -99,10 +99,10 @@ Credit: <input type="number"   id="cr" name="secr" readonly>
 
 <input type="submit" value="Submit" style="background-color: green;border: 0.5px solid black;color: white;padding: 15px 30px;font-size: 13px;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);"> 
-
-
+<br>
 
 </form>
+<button onclick='location.href="userlist.php"' style="background-color: green;border: 0.5px solid black;color: white;padding: 15px 30px;font-size: 13px;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);">Back</button>
 
 <script>
 
@@ -115,30 +115,31 @@ console.log(userid);
     var ucr=document.getElementById('cr').value=credit;
     var reg=/^[0-9]+$/;   
     function validateForm() {
-  
+  var x=0;
+  var y=0;
   var x = document.forms["my_form"]["uid"].value;
   var y = document.forms["my_form"]["amount"].value;
+ // document.write(y+" "+credit);
   
+   if (!x.match(reg) || !y.match(reg)) {
+            alert("Please Enter Number Only");
+            return false;
+          } 
+          
+           if(x<=0 || y<=0)
+         {
+         alert("Enter Valied value");
+         return false;
+         }
+          
+          
          if(x==userid)
          {
          alert("Please Enter Other user Id");
          return false;
          }
-         if(x<=0 || y<=0)
-         {
-         alert("Enter Valied value");
-         return false;
-         }
-  
-          if (y>credit) {
-            alert("Please Check Your Credit");
-            return false;
-          } 
  
-    if (!x.match(reg) || !y.match(reg)) {
-            alert("Please Enter Number Only");
-            return false;
-          } 
+   
      
    }
 </script>
