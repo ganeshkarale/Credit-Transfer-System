@@ -13,6 +13,14 @@ $cr_am= $_REQUEST['amount'];
 $se_fcr=$se_cr-$cr_am;
 
 // Attempt insert query execution
+$sql3="select * from user where id=$re_id;";
+
+$res=mysqli_query($db,$sql3);
+
+if(mysqli_num_rows($res)>0)
+{
+    
+
 if($se_cr>$cr_am)
 {
 $sql = "INSERT INTO his VALUES (null,$se_id, $re_id, $cr_am,current_date())";
@@ -23,6 +31,8 @@ $filed=mysqli_fetch_array($result);
 $re_cr=$filed['Credit'];
 $re_fcr=$re_cr+$cr_am;
 $sql2 = "update user set Credit=$re_fcr where id=$re_id";
+
+    
 
 if(mysqli_query($db, $sql) && mysqli_query($db, $sql1)  && mysqli_query($db, $sql2)){
     echo "<script>alert('Records added successfully.');";
@@ -36,14 +46,23 @@ if(mysqli_query($db, $sql) && mysqli_query($db, $sql1)  && mysqli_query($db, $sq
 
 
 // Close connection
-mysqli_close($db);
 }
-else 
-{
+else{
     echo "<script>alert('Check your credit.');";
     echo 'window.location.replace("tranfer.php");';
     echo "</script>";
     
+    
+}
+mysqli_close($db);
+
+}
+else 
+{
+    echo "<script>alert('Sorry User Does Not exit!');";
+    echo 'window.location.replace("tranfer.php");';
+    echo "</script>";
+    echo"";
 }
   
 
